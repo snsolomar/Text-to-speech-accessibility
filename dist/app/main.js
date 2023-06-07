@@ -82,6 +82,18 @@ const speak = () => {
         speakText.rate = rate.value;
 
         //speak
-        synth.speak(speakText)
+        synth.speak(speakText);
     }
-}
+};
+
+//event listeners
+
+//click "speak" button
+textForm.addEventListener('submit', e => {
+    //since we are using a form, we don't want submit to default to its submit method, so we use .preventDefault method
+    e.preventDefault();
+    speak();
+    //The HTMLElement.blur() method removes keyboard focus from the current element
+    textInput.blur();
+});
+
