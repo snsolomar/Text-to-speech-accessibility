@@ -52,11 +52,36 @@ const speak = () => {
 
     if (textInput.value !== '') {
         //get speak text
+        //will capture the textInput into a variable, which we will use to set up the speak method
         const speakText = new SpeechSynthesisUtterance(textInput.value);
-        //end speak
+        
+        //speak end
         speakText.onend = e => {
             console.log('Done speaking');
-            
         }
+
+        //speak error
+        speakText.onerror = e => {
+            console.log('Something went wrong')
+        } 
+
+        //selected voice
+        //The read-only HTMLSelectElement property "selectedOptions" contains a list of the <option> elements contained within the <select> element that are currently selected.
+        //The getAttribute() method of the Element interface returns the value of a specified attribute on the element.
+        const selectedVoice = voiceSelect.selectedOptions[0].getAttribute('data-name');
+
+        //loop through voices
+        voices.forEach( voice => {
+            if (voice.name === selectedVoice) {
+                speakText.voice = voice;
+            }
+        });
+
+        //set pitch and rate
+        speakText.pitch = pitch.value;
+        speakText.rate = rate.value;
+
+        //speak
+        synth.speak(speakText)
     }
 }
