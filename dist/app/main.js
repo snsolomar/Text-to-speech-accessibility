@@ -12,7 +12,7 @@ const rate = document.getElementById('rate');
 const rateValue = document.getElementById('rate-value');
 const pitch = document.getElementById('pitch');
 const pitchValue = document.getElementById('pitch-value');
-const body = document.getElementById('body');
+const body = document.querySelector('body');
 
 //Init voices array
 let voices = [];
@@ -44,6 +44,7 @@ if(synth.onvoiceschanged !== undefined) {
 
 //speak 
 const speak = () => {
+
     //check if speaking
     if (synth.speaking) {
         console.error('Already speaking')
@@ -51,6 +52,11 @@ const speak = () => {
     } 
 
     if (textInput.value !== '') {
+        //add wave animation
+        body.style.background = '#141414 url(img/wave.gif)';
+        body.style.backgroundRepeat = 'repeat-x';
+        body.style.backgroundSize = '100% 100%';
+
         //get speak text
         //will capture the textInput into a variable, which we will use to set up the speak method
         const speakText = new SpeechSynthesisUtterance(textInput.value);
@@ -58,6 +64,8 @@ const speak = () => {
         //speak end
         speakText.onend = e => {
             console.log('Done speaking');
+            //stops the wave.gif from playing in the background
+            body.style.background = '#141414'
         }
 
         //speak error
