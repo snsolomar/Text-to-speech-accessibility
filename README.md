@@ -12,7 +12,6 @@ Whether you're looking for support in language learning, requiring an audio outp
 - Adjustable speech rate and pitch, allowing for personalized voice output.
 - Multilingual support with 22 languages, encouraging accessibility for users worldwide.
 
-Start your journey with the Text-to-Speech application today and explore a world of customizable and inclusive speech synthesis!
 
 ## Deployment 🚀
 Setting up is a breeze! Simply open the HTML file in your browser and the application is ready for use.
