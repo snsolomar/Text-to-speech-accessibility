@@ -13,3 +13,6 @@ User-friendly interface with a simple text input box.
 Adjustable speech rate and pitch for personalized voice output.
 Support for 22 languages, promoting accessibility for users worldwide.
 Get started with the Text-to-Speech application today, and explore a world of customizable and inclusive speech synthesis
+
+How to deploy:
+-Setup is easy; simply open the html in your browser and the app is ready for use
